@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+.note {
+  background: linear-gradient(
+    180deg,
+    rgb(245, 186, 19) 0%,
+    rgb(245, 186, 19) 12%,
+    rgb(235, 176, 16) 75%,
+    rgb(225, 166, 15) 100%
+  );
+  border-radius: 7px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 290px;
+  margin: 16px;
+  float: left;
+  font-family: "Kalam", cursive;
+}
+.note h1 {
+  font-size: 1.3em;
+  margin-bottom: 6px;
+}
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
