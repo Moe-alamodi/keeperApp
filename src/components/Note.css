@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+.card {
+  background-color: #c68c53a8;
+}
 .note {
   background: linear-gradient(
     180deg,
-    rgb(245, 186, 19) 0%,
+    #ffc54d 0%,
     rgb(245, 186, 19) 12%,
     rgb(235, 176, 16) 75%,
-    rgb(225, 166, 15) 100%
+    #ffc54d 100%
   );
   border-radius: 7px;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
@@ -14,6 +17,7 @@
   margin: 16px;
   float: left;
   font-family: "Kalam", cursive;
+  cursor: pointer;
 }
 .note h1 {
   font-size: 1.3em;
@@ -24,4 +28,15 @@
   margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+.note button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: #f5ba13;
+  border: none;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  outline: none;
 }

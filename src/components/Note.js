@@ -20,9 +20,7 @@ const Note = (props) => {
     >
       <h1>{props.title}</h1>
       <p>{props.content}</p>
-      <button onClick={handleClick}>
-        <FontAwesomeIcon icon="fa-solid fa-trash" />
-      </button>
+      <button onClick={handleClick}>X</button>
     </div>
   );
 };
