@@ -32,11 +32,12 @@
 .note button {
   position: relative;
   float: right;
-  margin-right: 10px;
-  color: #f5ba13;
+  color: #ffff;
   border: none;
-  width: 15px;
-  height: 15px;
+  background-color: #f5ba13;
   cursor: pointer;
   outline: none;
+}
+.note button:hover {
+  color: red;
 }

@@ -1,26 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import Delete from "@mui/icons-material/Delete";
+import { IconButton } from "@mui/material";
+
 import "./Note.css";
 const Note = (props) => {
-  // const [isMousedOver, setIsMousedOver] = useState(false);
-  // const onMouseOverHandler = () => {
-  //   setIsMousedOver(true);
-  // };
-  // const onMouseOutHandler = () => {
-  //   setIsMousedOver(false);
-  // };
-  const handleClick = (event) => {
+  const handleClick = () => {
     props.onDelete(props.id);
   };
   return (
-    <div
-      className="note"
-      // onMouseOver={onMouseOverHandler}
-      // onMouseOut={onMouseOutHandler}
-      // style={{ transform: isMousedOver ? "scale(1.1)" : "scale(1)" }}
-    >
+    <div className="note">
       <h1>{props.title}</h1>
       <p>{props.content}</p>
-      <button onClick={handleClick}>X</button>
+      <IconButton onClick={handleClick} aria-label="delete" size="small">
+        <Delete fontSize="small" />
+      </IconButton>
     </div>
   );
 };

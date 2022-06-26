@@ -9,21 +9,15 @@ import "./App.css";
 
 function App() {
   const [isLoggedIn, setIsloggedIn] = useState(false);
-  // const isLoggedInHandlerLocalStorage = () => {
-  //   setIsloggedIn(JSON.parse(localStorage.getItem("loggedin")));
-  // };
+
   const isLoggedInHandler = () => {
     setIsloggedIn(true);
-    // localStorage.setItem("loggedin", "" + true);
   };
   const isLoggedOutHandler = () => {
     setIsloggedIn(false);
   };
   let content = isLoggedIn ? (
-    <div
-      // onMouseOver={isLoggedInHandlerLocalStorage}
-      className="notes-dashbored"
-    >
+    <div className="notes-dashbored">
       <Header loggedOut={isLoggedOutHandler} />
       <Card noteData={notes} style={{ backGroundColor: "#c68c53a8" }} />
       <Footer />

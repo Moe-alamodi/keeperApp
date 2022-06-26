@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Note from "./Note";
+
 import "./Note.css";
 import NewNote from "./NewNote";
 
