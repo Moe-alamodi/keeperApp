@@ -1,34 +1,60 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./login.css";
 // import users from "../users";
 
 const LogIn = (props) => {
+  // useStates
   const [logInInfo, setLogInInfo] = useState({ username: "", password: "" });
-  const [disable, setDisable] = useState(false);
-  window.addEventListener("load", () => {
-    setDisable(false);
-  });
-  const logInHandler = (event) => {
-    event.preventDefault();
-    if (
-      logInInfo.username.trim().length !== 0 &&
-      logInInfo.password.trim().length !== 0
-    ) {
-      setDisable(false);
-      props.loginAction();
-      setLogInInfo({ username: "", password: "" });
-    } else {
-      setDisable(true);
-    }
-  };
+  const [usernameIsValid, setUsernameIsValid] = useState();
+  const [passwordIsValid, setPasswordIsValid] = useState();
+  const [formIsValid, setFormisValid] = useState(false);
+
+  //useEffect
+  useEffect(() => {}, []);
+  useEffect(() => {
+    const identifier = setTimeout(() => {
+      console.log("Validations is happenning ");
+      setFormisValid(
+        logInInfo.username.trim().length > 6 &&
+          logInInfo.password.trim().length > 6
+      );
+    }, 500);
+    // Cleanup function
+    return () => {
+      console.log("cleanup now happenning ");
+      clearTimeout(identifier);
+    };
+  }, [logInInfo.username, logInInfo.password]);
+
+  // Actions/Functions
   const OnChangeHandler = (event) => {
     const { name, value } = event.target;
-    setDisable(false);
+    setFormisValid(false);
 
     setLogInInfo((prevdata) => {
       return { ...prevdata, [name]: value };
     });
+    if (name === "username") {
+      setUsernameIsValid(logInInfo[name].trim().length > 6);
+    } else if (name === "password") {
+      setPasswordIsValid(logInInfo[name].trim().length > 6);
+    }
   };
+  const validateUsernameHandler = () => {
+    setUsernameIsValid(logInInfo.username.trim().length > 6);
+  };
+  const validatePasswordHandler = () => {
+    setPasswordIsValid(logInInfo.password.trim().length > 6);
+  };
+  const logInHandler = (event) => {
+    event.preventDefault();
+    if (formIsValid) {
+      props.loginAction(logInInfo);
+
+      setLogInInfo({ username: "", password: "" });
+    }
+  };
+
   return (
     <div className="login-card">
       <img
@@ -41,9 +67,13 @@ const LogIn = (props) => {
         <form onSubmit={logInHandler}>
           <div class="txt_field">
             <input
+              className={`input-field ${
+                usernameIsValid === false ? "input-invalid" : ""
+              }`}
               type="text"
               name="username"
               onChange={OnChangeHandler}
+              onBlur={validateUsernameHandler}
               value={logInInfo.username}
             ></input>
             <span></span>
@@ -54,17 +84,27 @@ const LogIn = (props) => {
               type="password"
               name="password"
               onChange={OnChangeHandler}
+              onBlur={validatePasswordHandler}
               value={logInInfo.password}
+              className={`input-field ${
+                passwordIsValid === false ? "input-invalid" : ""
+              }`}
             ></input>
+
             <span></span>
             <label>Password</label>
           </div>
-          {disable && (
+          {/* {formIsValid && (
             <span className="error" style={{ color: "red" }}>
-              Please enter username and password
+              Please enter a valid username and password
             </span>
-          )}
-          <button className="login-btn" type="submit" value="Login">
+          )} */}
+          <button
+            className={`login-btn ${!formIsValid ? "disable-btn" : ""}`}
+            type="submit"
+            value="Login"
+            disabled={!formIsValid}
+          >
             Login
           </button>
           {/* <div class="signup_link">
