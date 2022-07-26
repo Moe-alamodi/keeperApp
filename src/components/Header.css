@@ -1,19 +1,23 @@
 header {
-  background-color: rgba(245, 185, 19, 0.898);
+  background-color: #856a3500;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
   margin: auto -16px;
   margin-bottom: 1rem;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
   display: grid;
   grid-template-columns: 1fr 3fr 1rem;
+  font-family: "Kalam", cursive;
 }
 
-header h1 {
+header a {
   color: #fff;
+  font-size: 2rem;
   font-family: "McLaren", cursive;
   font-weight: 200;
   grid-column-start: 1;
   text-shadow: rgba(3, 4, 4, 0.4) 0px 10px 24px;
+  text-decoration: none;
 }
 header button {
   justify-self: end;
@@ -21,15 +25,23 @@ header button {
   font-family: "McLaren", cursive;
   appearance: none;
   outline: 0;
-  background-color: rgba(245, 185, 19, 0.3);
-  border: 0;
-  color: #fff;
-  border-radius: 3px;
-  font-size: 19px;
-  cursor: pointer;
-  transition: 0.3s;
+  border-radius: 0;
+  position: relative;
+
+  background-color: #fff;
+  color: #000;
+  border: none;
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transform-style: flat;
+  transition: all 250ms ease-out;
 }
 header button:hover {
-  color: rgb(10, 14, 2);
-  transition: 0.5s;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: none;
+
+  transition: all 0.5s;
 }

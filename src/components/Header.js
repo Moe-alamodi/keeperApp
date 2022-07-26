@@ -7,10 +7,10 @@ import "./Header.css";
 const Header = (props) => {
   return (
     <header>
-      <h1>
+      <a href="/">
         <StickyNote2Icon />
         Keeper
-      </h1>
+      </a>
       <button onClick={props.loggedOut}>
         <LogoutIcon />
       </button>

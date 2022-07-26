@@ -10,7 +10,6 @@ const LogIn = (props) => {
   const [formIsValid, setFormisValid] = useState(false);
 
   //useEffect
-  useEffect(() => {}, []);
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("Validations is happenning ");
@@ -100,10 +99,10 @@ const LogIn = (props) => {
             </span>
           )} */}
           <button
-            className={`login-btn ${!formIsValid ? "disable-btn" : ""}`}
+            className={`login-btn `}
             type="submit"
             value="Login"
-            disabled={!formIsValid}
+            // disabled={!formIsValid}
           >
             Login
           </button>

@@ -1,24 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
 .card {
-  background-color: #c68c53a8;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .note {
-  background: linear-gradient(
-    180deg,
-    #ffc54d 0%,
-    rgb(245, 186, 19) 12%,
-    rgb(235, 176, 16) 75%,
-    #ffc54d 100%
-  );
+  background: #fff;
+  background-image: linear-gradient(
+      90deg,
+      #b6d7e8,
+      2px,
+      transparent,
+      2px,
+      transparent
+    ),
+    linear-gradient(0, #d9eaf3, 1px, transparent, 2px, transparent);
+  background-position: 4rem 0, 0 5px;
+  background-size: 100% 3rem;
   border-radius: 7px;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  width: 290px;
-  margin: 16px;
-  float: left;
+  box-shadow: 1px 3px 5px rgba(11, 13, 24, 0.8);
+  padding: 1rem 1rem 1rem 5rem;
+  max-width: 400px;
+  height: fit-content;
+  transform: rotate(-2deg);
   font-family: "Kalam", cursive;
   cursor: pointer;
+  z-index: 3;
+  border-top-left-radius: 250px 15px;
+  border-bottom-left-radius: 20px 115px;
+  border-bottom-right-radius: 105px 15px;
 }
+
 .note h1 {
   font-size: 1.3em;
   margin-bottom: 6px;
@@ -41,3 +54,14 @@
 .note button:hover {
   color: red;
 }
+/* background: #fff;
+    background-image: linear-gradient(90deg,#b6d7e8,2px,transparent,2px,transparent),linear-gradient(0,#d9eaf3,1px,transparent,2px,transparent);
+    background-position: 4rem 0,0 5px;
+    background-size: 100% 3rem;
+    box-shadow: 0 0 6px 3px rgb(0 0 0 / 10%);
+    margin: 0 auto -100px;
+    max-width: 500px;
+    padding: 20px 20px 20px 6rem;
+    position: relative;
+    transform: rotate(-2deg);
+    z-index: 4; */

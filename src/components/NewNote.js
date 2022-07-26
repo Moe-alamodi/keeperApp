@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Zoom from "@mui/material/Zoom";
 import Fab from "@mui/material/Fab";
-
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import "./NewNote.css";
 
 const NewNote = (props) => {
@@ -42,39 +42,42 @@ const NewNote = (props) => {
   };
 
   return (
-    <div>
-      <form className="form" onSubmit={submitHandler}>
-        {isExpanded && (
-          <input
-            name="title"
-            onChange={onChangeHandler}
-            placeholder="Title"
-            value={note.title}
-            style={{ borderColor: !isValid ? "red" : "#fff" }}
-          ></input>
-        )}
-
-        <textarea
-          name="content"
-          placeholder="Take a note..."
-          value={note.content}
+    <form className="form" onSubmit={submitHandler}>
+      {isExpanded && (
+        <input
+          name="title"
           onChange={onChangeHandler}
-          onClick={isExpandedHandler}
-          rows={isExpanded ? "3" : "1"}
-        />
-        {!isValid && (
-          <span className="error" style={{ color: "red" }}>
-            Area can't be empty
-          </span>
-        )}
+          placeholder="Title"
+          value={note.title}
+          style={{ borderColor: !isValid ? "red" : "#fff" }}
+        ></input>
+      )}
 
-        <Zoom in={isExpanded}>
-          <Fab type="submit">
-            <AddIcon />
-          </Fab>
-        </Zoom>
-      </form>
-    </div>
+      <textarea
+        name="content"
+        placeholder="Take a note..."
+        value={note.content}
+        onChange={onChangeHandler}
+        onClick={isExpandedHandler}
+        rows={isExpanded ? "3" : "1"}
+      />
+      {!isValid && (
+        <span className="error" style={{ color: "red" }}>
+          Area can't be empty
+        </span>
+      )}
+
+      <Zoom in={isExpanded}>
+        <Fab type="submit">
+          <AddIcon />
+        </Fab>
+      </Zoom>
+      {/* <Zoom in={isExpanded}>
+        <Fab type="submit">
+          <ArrowCircleUpIcon />
+        </Fab>
+      </Zoom> */}
+    </form>
   );
 };
 export default NewNote;
